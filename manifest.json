@@ -1,17 +1,30 @@
 {
   "manifest_version": 2,
 
-  "name": "Getting started example",
-  "description": "This extension allows the user to change the background color of the current page.",
+  "name": "Auto Refresh - Raw",
+  "description": "This extension is the Auto Refresh extension by http://64px.com but altered slightly to not send any usage analytics.",
   "version": "1.0",
 
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html",
-    "default_title": "Hello World!"
+    "default_title": "Auto Refresh"
+  },
+  "background": {
+    "page": "background.html"
   },
   "permissions": [
     "activeTab",
-    "storage"
+    "storage",
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["static/css/main.css"],
+      "js": ["static/js/jquery.js", "static/js/main.js","static/js/background.js","static/js/moment.js"]
+      // "js": ["static/js/jquery-3.2.1.js", "static/js/main.js"]
+      // "js": ["static/js/main.js"]
+    }
   ]
 }

@@ -1,49 +1,33 @@
-<!doctype html>
-<!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- -->
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Getting Started Extension's Popup</title>
-    <style type="text/css">
-      body {
-        margin: 10px;
-        white-space: nowrap;
-      }
-
-      h1 {
-        font-size: 15px;
-      }
-
-      #container {
-        align-items: center;
-        display: flex;
-        justify-content: space-between;
-      }
-    </style>
-
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-    -->
-    <script src="popup.js"></script>
-  </head>
-
-  <body>
-    <h1>Background Color Changer</h1>
-    <div id="container">
-      <span>Choose a color</span>
-      <select id="dropdown">
-        <option selected disabled hidden value=''></option>
-        <option value="white">White</option>
-        <option value="pink">Pink</option>
-        <option value="green">Green</option>
-        <option value="yellow">Yellow</option>
-      </select>
-    </div>
-  </body>
+    <head>
+        <title>Auto Refresh</title>
+        <link rel="stylesheet" type="text/css" href="static/css/main.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <header>Auto Refresh <span class="light">based on <a href="http://64px.com" target="_blank">64 Pixels</a></span></header>
+        <div id="time">
+            <section>
+                <input type="number" value="0" min="0" id="minutes" step="1" pattern="\d+" />
+                <span class="label">Minutes</span>
+            </section>
+            <section>
+                <input type="number" value="15" min="0" id="seconds" step="1" pattern="\d+" />
+                <span class="label">Seconds</span>
+            </section>
+            <section>
+                <button id="start">Start</button>
+                <button id="stop">Stop</button>
+                <span class="label"></span>
+            </section>
+        </div>
+        <footer>
+            <span id="defaultSuccess">✔</span>
+            <a href="#" id="default">Set Default</a>
+        </footer>
+        <script type="text/javascript" src="static/js/jquery.js"></script>
+        <!--<script type="text/javascript" src="static/js/jquery-3.2.1.js"></script>-->
+        <script type="text/javascript" src="static/js/main.js"></script>
+    </body>
 </html>
